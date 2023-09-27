@@ -1,14 +1,21 @@
 <template>
-    <div>
-
-        <v-sheet width="400" class="mx-auto">
-            <h2>Send Tokens</h2>
-
-            <v-form>
-                <v-text-field label="Token Amount"></v-text-field>
-            </v-form>
+    <v-container class="d-flex justify-space-around">
+        <v-sheet width="500" class="mx-auto">
+            <h1>Send yourself native tokens
+                Why? There is no why.
+                Balance:</h1>
         </v-sheet>
-    </div>
+        <v-sheet width="500" class="mx-auto">
+            <v-card title="Send Tokens">
+                <v-form>
+                    <v-text-field label="Token Amount"></v-text-field>
+                </v-form>
+                <v-card-actions>
+                    <v-btn append-icon="$vuetify" variant="tonal" block>Send</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-sheet>
+    </v-container>
 </template>
 
 <script>
