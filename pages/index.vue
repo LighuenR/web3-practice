@@ -7,8 +7,8 @@
         </v-sheet>
         <v-sheet width="500" class="mx-auto">
             <v-card title="Send Tokens">
-                <v-form>
-                    <v-text-field label="Token Amount"></v-text-field>
+                <v-form class="mx-auto">
+                    <v-text-field  label="Token Amount" variant="outlined" class="mx-2"></v-text-field>
                 </v-form>
                 <v-card-actions>
                     <v-btn append-icon="$vuetify" variant="tonal" block>Send</v-btn>

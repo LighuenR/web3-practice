@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <v-app-bar>
-            <v-app-bar-tittle>
+            <v-app-bar-title>
                 Swap
-            </v-app-bar-tittle>
+            </v-app-bar-title>
         </v-app-bar>
         <v-footer class="bg-grey-lighten-1" app>
     <v-row justify="center" no-gutters>
