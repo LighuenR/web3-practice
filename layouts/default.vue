@@ -5,7 +5,7 @@
                 Swap
             </v-app-bar-tittle>
         </v-app-bar>
-        <v-footer class="bg-grey-lighten-1">
+        <v-footer class="bg-grey-lighten-1" app>
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"
