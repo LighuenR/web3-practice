@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  runtimeConfig: {
+    public: {
+      WALLETCONNECT_PROJECT_ID: process.env.WALLETCONNECT_PROJECT_ID,
+    },
+  },
   vite: {
     define: {
       'process.env.DEBUG': false,

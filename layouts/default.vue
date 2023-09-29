@@ -4,6 +4,7 @@
       <v-app-bar-title>
         Swap
       </v-app-bar-title>
+      <CommonConnectButton />
     </v-app-bar>
     <v-main>
       <slot />

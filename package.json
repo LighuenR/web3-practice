@@ -15,7 +15,11 @@
   },
   "dependencies": {
     "@mdi/font": "^7.2.96",
+    "@web3modal/ethereum": "^2.7.1",
+    "@web3modal/html": "^2.7.1",
     "sass": "^1.68.0",
+    "use-wagmi": "^0.4.1",
+    "viem": "^1.14.0",
     "vuetify": "^3.4.0-alpha.1"
   }
 }
