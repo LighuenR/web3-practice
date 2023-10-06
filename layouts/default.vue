@@ -10,7 +10,7 @@
       <slot />
     </v-main>
 
-    <v-footer class="bg-white justify-center" app>
+    <v-footer class="foot justify-center" app>
 
       {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
 
@@ -20,6 +20,8 @@
   </v-app>
 </template>
 <style>
-
+.foot {
+  background-color: #9E6A11;
+}
 </style>
 
