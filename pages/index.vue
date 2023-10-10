@@ -83,16 +83,26 @@
                             v-bind="props"
                             text="Open Dialog"
                             color="#986F14"
+                            :prepend-avatar="tokenPay?.icon"
                           >
+                            <v-img height="30" :src="tokenPay?.icon"></v-img> {{ tokenPay?.symbol }}
                           </v-btn>
                         </template>
 
                         <template v-slot:default="{ isActive }">
                           <v-card title="Dialog">
-                            <v-list :items="items" item-props lines="three">
-                              <template v-slot:subtitle="{ subtitle }">
-                                <div v-html="subtitle"></div>
-                              </template>
+                            <v-list lines="three">
+                              <v-list-item
+                                v-for="token in tokenList"
+                                :key="token.symbol"
+                                link
+                                @click="setPayToken(token)"
+                                :prepend-avatar="token.icon"
+                                :title="token.symbol"
+                                :subtitle="token.name"
+                              >
+                
+                              </v-list-item>
                             </v-list>
 
                             <v-card-actions>
@@ -110,7 +120,12 @@
 
                     <v-card>
                       <v-card-text class="pa-6">
-                        <v-btn color="primary" size="large" @click="clickMe">
+                        <v-btn
+                          color="primary"
+                          size="large"
+                          variant="text"
+                          @click="clickMe"
+                        >
                           <v-icon icon="mdi-target" start></v-icon>
 
                           Click me
