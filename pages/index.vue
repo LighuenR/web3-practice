@@ -83,9 +83,12 @@
                             v-bind="props"
                             text="Open Dialog"
                             color="#986F14"
-                            :prepend-avatar="tokenPay?.icon"
                           >
-                            <v-img height="30" :src="tokenPay?.icon"></v-img> {{ tokenPay?.symbol }}
+                            <template v-slot:prepend>
+                              <img style="max-height: 20px;" :src="`${tokenReceipt?.icon}`">
+                            </template>
+
+                           {{ tokenReceipt?.symbol }}
                           </v-btn>
                         </template>
 
@@ -96,7 +99,7 @@
                                 v-for="token in tokenList"
                                 :key="token.symbol"
                                 link
-                                @click="setPayToken(token)"
+                                @click="setReceiptToken(token)"
                                 :prepend-avatar="token.icon"
                                 :title="token.symbol"
                                 :subtitle="token.name"
@@ -174,6 +177,10 @@ const tokenReceipt = ref();
 function setPayToken(token) {
   console.log("Token que llega", token.symbol);
   tokenPay.value = token
+}
+function setReceiptToken(token) {
+  console.log("Token que llega", token.symbol);
+  tokenReceipt.value = token
 }
 </script>
 
