@@ -19,11 +19,14 @@
                             v-bind="props"
                             :prepend-avatar="tokenPay?.icon"
                           >
-                          <template v-slot:prepend>
-                              <img style="max-height: 20px;" :src="`${tokenPay?.icon}`">
+                            <template v-slot:prepend>
+                              <img
+                                style="max-height: 20px"
+                                :src="`${tokenPay?.icon}`"
+                              />
                             </template>
 
-                           {{ tokenPay?.symbol }}
+                            {{ tokenPay?.symbol }}
                           </v-btn>
                         </template>
 
@@ -39,7 +42,6 @@
                                 :title="token.symbol"
                                 :subtitle="token.name"
                               >
-                
                               </v-list-item>
                             </v-list>
 
@@ -89,10 +91,13 @@
                             color="#986F14"
                           >
                             <template v-slot:prepend>
-                              <img style="max-height: 20px;" :src="`${tokenReceipt?.icon}`">
+                              <img
+                                style="max-height: 20px"
+                                :src="`${tokenReceipt?.icon}`"
+                              />
                             </template>
 
-                           {{ tokenReceipt?.symbol }}
+                            {{ tokenReceipt?.symbol }}
                           </v-btn>
                         </template>
 
@@ -108,7 +113,6 @@
                                 :title="token.symbol"
                                 :subtitle="token.name"
                               >
-                
                               </v-list-item>
                             </v-list>
 
@@ -152,8 +156,23 @@
               block
               size="large"
               color="#9E6A11"
+              :disabled="dialog"
+              :loading="dialog"
+              @click="dialog = true"
               >Send</v-btn
             >
+            <v-dialog v-model="dialog" :scrim="false" persistent width="auto">
+              <v-card color="#9E6A11">
+                <v-card-text>
+                  Your transaction is being processed
+                  <v-progress-linear
+                    indeterminate
+                    color="white"
+                    class="mb-0"
+                  ></v-progress-linear>
+                </v-card-text>
+              </v-card>
+            </v-dialog>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -162,6 +181,7 @@
 </template>
 
 <script setup>
+
 const tokenList = [
   {
     icon: "https://cryptologos.cc/logos/thumbs/bitcoin.png?v=025",
@@ -180,19 +200,34 @@ const tokenReceipt = ref();
 
 function setPayToken(token) {
   console.log("Token que llega", token.symbol);
-  tokenPay.value = token
+  tokenPay.value = token;
 }
 function setReceiptToken(token) {
   console.log("Token que llega", token.symbol);
-  tokenReceipt.value = token
+  tokenReceipt.value = token;
 }
-onMounted(()=>{
-  setPayToken(tokenList[0])
-  setReceiptToken(tokenList[1])
- 
-})
+onMounted(() => {
+  setPayToken(tokenList[0]);
+  setReceiptToken(tokenList[1]);
+});
 </script>
+<script>
 
+export default {
+    data () {
+      return {
+        dialog: false,
+      }
+    },
+
+    watch: {
+      dialog (val) {
+        if (!val) return
+
+        setTimeout(() => (this.dialog = false), 5000)
+      },
+    },
+  }</script>
 <style lang="scss">
 .swap-input {
   height: 130px;
