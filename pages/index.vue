@@ -20,10 +20,10 @@
                             :prepend-avatar="tokenPay?.icon"
                           >
                           <template v-slot:prepend>
-                              <img style="max-height: 20px;" :src="`${tokenReceipt?.icon}`">
+                              <img style="max-height: 20px;" :src="`${tokenPay?.icon}`">
                             </template>
 
-                           {{ tokenReceipt?.symbol }}
+                           {{ tokenPay?.symbol }}
                           </v-btn>
                         </template>
 
@@ -186,6 +186,11 @@ function setReceiptToken(token) {
   console.log("Token que llega", token.symbol);
   tokenReceipt.value = token
 }
+onMounted(()=>{
+  setPayToken(tokenList[0])
+  setReceiptToken(tokenList[1])
+ 
+})
 </script>
 
 <style lang="scss">
