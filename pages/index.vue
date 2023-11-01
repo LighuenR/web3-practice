@@ -19,7 +19,11 @@
                             v-bind="props"
                             :prepend-avatar="tokenPay?.icon"
                           >
-                            <v-img height="30" :src="tokenPay?.icon"></v-img> {{ tokenPay?.symbol }}
+                          <template v-slot:prepend>
+                              <img style="max-height: 20px;" :src="`${tokenReceipt?.icon}`">
+                            </template>
+
+                           {{ tokenReceipt?.symbol }}
                           </v-btn>
                         </template>
 
